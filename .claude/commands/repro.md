@@ -35,22 +35,30 @@ Use kebab-case for all path components.
 
 3. **Assumptions cell** — markdown table listing every underspecified detail with the assumption used. Examples of things to surface: tie-break rules, hyperparameter values not in the paper, initialisation strategies, settling criteria, traffic patterns, topology details.
 
-4. **Implementation cell(s)** — pure Python using only `numpy`, `matplotlib`, and stdlib. No repo-local modules. Define helper functions close to the cells that first use them.
+4. **Implementation** — pure Python using only `numpy`, `matplotlib`, and stdlib.
+   No repo-local modules. **Do NOT collect all functions in one large setup cell.**
+   Define each helper function in the same cell where it is first used, or in the
+   code cell immediately before that figure's section.
 
-5. **One cell per figure** — reproduce every figure in the paper. Each figure cell must be preceded by a markdown cell explaining:
-   - What the figure shows
-   - What the expected qualitative result is
+5. **Cell granularity** — split cells frequently so users can execute one at a time:
+   - **One `plt.show()` per cell** — never group multiple independent figures in a single cell.
+   - Separate "run experiment" from "plot result" where it makes sense
+     (e.g. expensive trial in one cell, `plt.show()` in the next).
+   - Each figure section = markdown explanation cell + one or more code cells.
+
+6. **One markdown cell per figure** — precedes the code, explains:
+   - What the figure shows and why it matters
+   - Expected qualitative result
    - Any assumptions specific to that figure
 
-6. **Summary cell** — markdown table with: figure/section → what it shows → reproduction status.
+7. **Summary cell** — markdown table: figure/section → what it shows → status.
 
 ### Figures and colormaps
 
-- Use `jet` colormap for any heatmap or density visualisation you create.
-- Keep all plotting code inline in the figure cell; no shared plotting helpers.
-- Use `plt.style.use("seaborn-v0_8-whitegrid")` as the default style.
-- Use `np.random.default_rng(seed)` with a fixed seed for all stochastic elements.
-- Prefer `seed=0` for single representative figures.
+- Use `jet` colormap for heatmaps and density visualisations.
+- Keep plotting code inline in its figure cell; no shared plotting helpers.
+- Use `plt.style.use("seaborn-v0_8-whitegrid")` at the top of the notebook.
+- Use `np.random.default_rng(seed)` with fixed seeds; prefer `seed=0` for single runs.
 
 ### Assumptions documentation
 

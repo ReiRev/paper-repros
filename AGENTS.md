@@ -56,10 +56,17 @@ Common underspecified details:
 **Implementation rules:**
 - Pure Python: only `numpy`, `matplotlib`, stdlib
 - No imports from repo-local files
-- Helper functions defined near their first use cell
-- Plotting code inline in figure cells
-- `plt.style.use("seaborn-v0_8-whitegrid")` at the top
+- **Do NOT put all functions in one large setup cell.** Define each helper function
+  in the cell where it is first used, or in the code cell immediately before that section.
+- Plotting code inline in figure cells; no shared plotting helpers
+- `plt.style.use("seaborn-v0_8-whitegrid")` at the top of the notebook
 - Fixed seeds via `np.random.default_rng(seed)` — prefer `seed=0` for single runs
+
+**Cell granularity rules:**
+- Split cells frequently — users execute the notebook one cell at a time
+- **One `plt.show()` per cell** — never group multiple independent figures
+- Separate expensive computation ("run trial") from display ("plot result")
+  so users can re-plot without re-running a long simulation
 
 **Figure rules:**
 - Reproduce every figure in the paper

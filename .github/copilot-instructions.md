@@ -16,9 +16,15 @@ Every paper notebook follows this cell order:
 1. Title + citation (markdown)
 2. Algorithm explanation with equations (markdown, detailed)
 3. Assumptions table for every underspecified paper detail (markdown)
-4. Full implementation (code)
-5. Per-figure: explanation markdown + figure code cell
+4. Imports, constants, shared data types (code — minimal shared setup only)
+5. Per-figure/section: markdown explanation → helper functions + run → plot cell(s)
 6. Summary table (markdown)
+
+**Cell granularity is critical:**
+- Split cells frequently — one logical action per cell
+- **One `plt.show()` per cell** — never put two independent figures in the same cell
+- Separate "run expensive trial" from "plot result" when computation takes > a few seconds
+- Do NOT collect all functions in a large setup cell — define each helper near its first use
 
 ### Implementation
 
