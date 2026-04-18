@@ -28,7 +28,7 @@ Use kebab-case for all path components.
 1. **Title cell** — paper title, authors, venue/year, one-sentence summary.
 
 2. **Algorithm explanation cell** — detailed markdown:
-   - Core mathematical formulation (equations rendered with LaTeX-style backtick blocks)
+   - Core mathematical formulation (equations rendered as Markdown display math with `$$ ... $$`)
    - Intuition for why the algorithm works
    - What makes it novel vs prior work
    - Any variants described in the paper
@@ -66,6 +66,11 @@ Add a docstring to every function. For non-trivial code blocks, add inline comme
 explaining the *why* — algorithm choices, paper-specific constants, non-obvious
 invariants. Do not comment basic Python or numpy operations; assume the reader
 knows the language and standard libraries.
+
+### Mathematical formatting
+
+Render display mathematics in notebook markdown with `$$ ... $$`. Never place
+mathematical formulas inside fenced code blocks.
 
 ### Assumptions documentation
 

@@ -25,6 +25,7 @@ Every paper notebook follows this cell order:
 - **One `plt.show()` per cell** — never put two independent figures in the same cell
 - Separate "run expensive trial" from "plot result" when computation takes > a few seconds
 - Do NOT collect all functions in a large setup cell — define each helper near its first use
+- Render display mathematics in markdown with `$$ ... $$`; never use fenced code blocks for formulas
 
 ### Implementation
 

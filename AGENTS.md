@@ -56,6 +56,7 @@ Common underspecified details:
 **Implementation rules:**
 - Pure Python: only `numpy`, `matplotlib`, stdlib
 - No imports from repo-local files
+- In notebook markdown, render display mathematics with `$$ ... $$`; never put mathematical formulas inside fenced code blocks.
 - **Do NOT put all functions in one large setup cell.** Define each helper function
   in the cell where it is first used, or in the code cell immediately before that section.
 - Plotting code inline in figure cells; no shared plotting helpers
