@@ -20,8 +20,10 @@
 - Split cells frequently so users can execute the notebook one cell at a time. One `plt.show()` per cell — never group independent figures. Separate expensive computation from plotting when computation takes more than a few seconds.
 - Keep plotting code inline in the figure cells. Do not add notebook-only plotting helper functions.
 - Use `jet` colormap for heatmaps and density visualisations.
+- Add docstrings to all functions and comments to non-obvious code blocks. Assume users know Python and standard libraries (numpy, matplotlib) — skip comments on basic operations. Focus on the *why*: algorithm choices, paper-specific constants, non-obvious invariants.
 - Prefer deterministic seeds for representative single-run figures.
 - Keep filenames in kebab-case.
+- Before starting any task, check `git status`. Commit after every logical change so that bad changes can be reverted cleanly.
 
 ## Current 1993 Routing Paper
 

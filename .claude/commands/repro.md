@@ -60,6 +60,13 @@ Use kebab-case for all path components.
 - Use `plt.style.use("seaborn-v0_8-whitegrid")` at the top of the notebook.
 - Use `np.random.default_rng(seed)` with fixed seeds; prefer `seed=0` for single runs.
 
+### Comments and docstrings
+
+Add a docstring to every function. For non-trivial code blocks, add inline comments
+explaining the *why* — algorithm choices, paper-specific constants, non-obvious
+invariants. Do not comment basic Python or numpy operations; assume the reader
+knows the language and standard libraries.
+
 ### Assumptions documentation
 
 For every detail the paper leaves unspecified, add an explicit row to the assumptions table. If a parameter appears only in a referenced technical report, note the discrepancy. Never silently fill in a gap.
@@ -70,12 +77,14 @@ The notebook must execute from top to bottom with `poetry run jupyter nbconvert 
 
 ## Workflow
 
-1. Read the PDF fully — extract all figures, algorithms, parameter values, metrics, and experimental setup.
-2. Draft the assumptions table before writing any code.
-3. Write the implementation; verify it can reproduce the policy summary or equivalent sanity-check figure first.
-4. Reproduce figures in order, cheapest first.
-5. Run the expensive multi-trial sweeps last.
-6. Execute the full notebook to confirm no errors.
+1. Check `git status` before starting.
+2. Read the PDF fully — extract all figures, algorithms, parameter values, metrics, and experimental setup.
+3. Draft the assumptions table before writing any code.
+4. Write the implementation; verify it can reproduce the policy summary or equivalent sanity-check figure first.
+5. Reproduce figures in order, cheapest first.
+6. Run the expensive multi-trial sweeps last.
+7. Execute the full notebook to confirm no errors.
+8. Commit. If anything is wrong the user will revert the commit.
 
 ## Verification
 

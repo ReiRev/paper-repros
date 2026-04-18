@@ -82,6 +82,33 @@ start of the cell:
 print("Running Figure 4 load sweep (this may take several minutes)...")
 ```
 
+## Comments and docstrings
+
+Add a docstring to every function. For non-trivial code, add inline comments explaining
+the *why*: algorithm choices, paper-specific constants, non-obvious invariants.
+
+Do not comment basic operations — the reader knows Python and standard libraries.
+
+```python
+def simulate_trial(config: TrialConfig, topology: Topology | None = None) -> TrialResult:
+    """Run one simulation trial and return all deliveries and the learned policy.
+
+    Uses the topology's shortest-path as a fallback for mode='shortest-path'.
+    Q-values are initialised to 0 for all reachable (node, dest, neighbour) triples
+    except self-loops (inf) and direct-delivery edges (0 regardless of init_q).
+    """
+    ...
+
+# active_packet_limit caps the queue to prevent unbounded memory use under high load
+if active_packets >= config.active_packet_limit:
+    break
+```
+
+## Git discipline
+
+Always check `git status` before starting. Commit after every logical change so that
+bad results can be reverted without losing unrelated work.
+
 ## When editing existing notebooks
 
 - Prefer editing the implementation cell directly rather than adding new cells

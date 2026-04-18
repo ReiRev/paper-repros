@@ -61,6 +61,9 @@ Common underspecified details:
 - Plotting code inline in figure cells; no shared plotting helpers
 - `plt.style.use("seaborn-v0_8-whitegrid")` at the top of the notebook
 - Fixed seeds via `np.random.default_rng(seed)` — prefer `seed=0` for single runs
+- Add a docstring to every function. Add inline comments to non-obvious code blocks
+  (algorithm choices, paper-specific constants, non-obvious invariants). Skip comments
+  on basic Python/numpy operations — assume the reader knows the language.
 
 **Cell granularity rules:**
 - Split cells frequently — users execute the notebook one cell at a time
@@ -95,6 +98,12 @@ Fix any errors. Report execution status.
 - No comments that explain *what* code does; only comments for non-obvious *why*
 - No docstrings on small helpers
 - `dataclass(frozen=True)` for configuration objects
+
+## Git discipline
+
+- Check `git status` before starting any task.
+- Commit after every logical change. Small, reversible commits let the user revert
+  a bad change without losing unrelated work.
 
 ## What not to do
 
