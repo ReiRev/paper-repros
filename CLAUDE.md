@@ -15,7 +15,8 @@
 - Reproduce the paper's evaluation, not only the algorithm.
 - If the paper leaves out a parameter, schedule, tie-break rule, or metric definition, state that explicitly in the notebook and document the assumption used.
 - Write notebook prose and explanatory markdown in English unless the user explicitly asks for another language.
-- In notebook markdown, render display mathematics with `$$ ... $$`; never use fenced code blocks for mathematical formulas.
+- In notebook markdown, render inline mathematics with `$ ... $` and display mathematics with `$$ ... $$`.
+- Never use inline backticks or fenced code blocks for mathematical notation; reserve backticks for code, paths, commands, and literal strings.
 - Keep each paper notebook self-contained by default. Avoid runtime dependencies on repo-local modules unless the user explicitly wants shared code.
 - Define helper functions in the same cell where they are first used, or in the code cell immediately before that section. Never collect all functions in one large setup cell.
 - Split cells frequently so users can execute the notebook one cell at a time. One `plt.show()` per cell — never group independent figures. Separate expensive computation from plotting when computation takes more than a few seconds.

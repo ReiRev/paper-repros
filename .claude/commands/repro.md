@@ -28,7 +28,7 @@ Use kebab-case for all path components.
 1. **Title cell** — paper title, authors, venue/year, one-sentence summary.
 
 2. **Algorithm explanation cell** — detailed markdown:
-   - Core mathematical formulation (equations rendered as Markdown display math with `$$ ... $$`)
+   - Core mathematical formulation (inline math with `$ ... $`, display math with `$$ ... $$`)
    - Intuition for why the algorithm works
    - What makes it novel vs prior work
    - Any variants described in the paper
@@ -69,8 +69,10 @@ knows the language and standard libraries.
 
 ### Mathematical formatting
 
-Render display mathematics in notebook markdown with `$$ ... $$`. Never place
-mathematical formulas inside fenced code blocks.
+Render inline mathematics in notebook markdown with `$ ... $` and display
+mathematics with `$$ ... $$`. Never place mathematical notation inside inline
+backticks or fenced code blocks. Reserve backticks for code, paths, commands,
+environment variables, and literal strings.
 
 ### Assumptions documentation
 
